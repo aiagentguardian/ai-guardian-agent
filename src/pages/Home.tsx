@@ -77,10 +77,20 @@ const Home = () => {
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
-        <div className="absolute inset-0 overflow-hidden">
+        {/* <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 animate-pulse" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.8)_100%)]" />
-        </div>
+        </div> */}
+        <div className="relative flex items-center 
+              justify-center h-screen overflow-hidden">
+              <video src=
+      "https://media.geeksforgeeks.org/wp-content/uploads/20221105184949/ezgif.com-gif-maker.mp4"
+                  autoPlay={true} loop muted
+                  className="absolute z-10 w-auto 
+                  min-w-full min-h-full max-w-none">
+              </video>
+          </div>
+        
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <motion.div

@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 
 const anthropic = new Anthropic({
-  apiKey: import.meta.env.VITE_ANTHROPIC_API_KEY,
+  apiKey: process.env.VITE_ANTHROPIC_API_KEY
 });
 
 const SECURITY_ANALYSIS_PROMPT = `You are an expert security analyst specializing in code security and vulnerability assessment. Analyze the provided GitHub repository for security vulnerabilities, risks, and potential threats.
@@ -37,7 +37,7 @@ Format the response as a JSON object with the following structure:
 export async function analyzeRepository(repoUrl: string) {
   try {
     const message = await anthropic.messages.create({
-      model: 'claude-3-opus-20240229',
+      model: 'claude-3-haiku-20240307',
       max_tokens: 4096,
       messages: [{
         role: 'user',
