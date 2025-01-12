@@ -48,7 +48,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-white-400 mb-12 max-w-3xl mx-auto"
             >
               Your AI-powered security sentinel, analyzing repositories for potential threats and vulnerabilities in real-time.
             </motion.p>
@@ -81,8 +81,8 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
-        <div className="absolute inset-0 overflow-hidden " style={{zIndex: -10, filter: "brightness(0.4)"}}>
-                       <video src=
+        <div className="absolute inset-0 overflow-hidden " style={{zIndex: -10}}>
+                       <video style={{filter: "brightness(0.4)"}} src=
       "/background.mov"
                   autoPlay={true} loop muted
                   className="absolute z-10 w-auto 
