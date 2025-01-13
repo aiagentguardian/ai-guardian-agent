@@ -3,6 +3,7 @@
 import { Shield, ArrowRight, Eye } from 'lucide-react';
 import Link from 'next/link';
 import { Features } from '@/components/Features';
+import { FeatureCards } from '@/components/FeatureCards';
 import { ExampleAnalysis } from '@/components/ExampleAnalysis';
 import { CTASection } from '@/components/CTASection';
 import { motion } from 'framer-motion';
@@ -12,8 +13,6 @@ export default function Home() {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
-
-        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -41,16 +40,25 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-blue-500 text-transparent bg-clip-text"
             >
-              Guardian AI
+              AI Guardian Network
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="text-xl md:text-2xl text-white-400 mb-12 max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-white-400 mb-6 max-w-3xl mx-auto"
             >
-              Your AI-powered security sentinel, analyzing repositories for potential threats and vulnerabilities in real-time.
+              Autonomous On-Chain Security Agents
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto"
+            >
+              A crypto-native security platform powered by autonomous AI guardians that continuously patrol blockchains, smart contracts, and DeFi protocols. Our agents provide real-time monitoring, alerting, and automatic threat mitigation, moving beyond traditional static security audits.
             </motion.p>
 
             <motion.div
@@ -64,7 +72,7 @@ export default function Home() {
                   href="/app"
                   className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg text-black bg-emerald-500 hover:bg-emerald-400 transition-colors"
                 >
-                  Analyze Repository
+                  Deploy Guardians
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </motion.div>
@@ -74,20 +82,22 @@ export default function Home() {
                   href="#demo"
                   className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg text-emerald-500 border border-emerald-500 hover:bg-emerald-500/10 transition-colors"
                 >
-                  See Demo
+                  View Demo
                   <Eye className="ml-2 w-5 h-5" />
                 </a>
               </motion.div>
             </motion.div>
           </motion.div>
         </div>
-        <div className="absolute inset-0 overflow-hidden " style={{zIndex: -10}}>
-                       <video style={{filter: "brightness(0.4)"}} src=
-      "/background.mov"
-                  autoPlay={true} loop muted
-                  className="absolute z-10 w-auto 
-                  min-w-full min-h-full max-w-none">
-              </video>
+        <div className="absolute inset-0 overflow-hidden" style={{zIndex: -10}}>
+          <video 
+            style={{filter: "brightness(0.4)"}} 
+            src="/background.mov"
+            autoPlay={true} 
+            loop 
+            muted
+            className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+          />
         </div>
         {/* Scroll Indicator */}
         <motion.div
@@ -111,6 +121,7 @@ export default function Home() {
       </section>
 
       <Features />
+      <FeatureCards />
       <ExampleAnalysis />
       <CTASection />
     </main>
