@@ -49,7 +49,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="text-xl md:text-2xl text-white-400 mb-6 max-w-3xl mx-auto"
             >
-              Autonomous On-Chain Security Agents
+              Autonomous AI Security Agents
             </motion.p>
 {/* Terminal-like display */}
 <div className="max-w-2xl mx-auto mb-12 transform hover:scale-105 transition-transform duration-300">
