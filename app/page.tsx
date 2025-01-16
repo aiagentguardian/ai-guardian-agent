@@ -1,6 +1,6 @@
 'use client';
 
-import { Shield, ArrowRight, Eye } from 'lucide-react';
+import { Shield, ArrowRight, Eye, Terminal } from 'lucide-react';
 import Link from 'next/link';
 import { Features } from '@/components/Features';
 import { FeatureCards } from '@/components/FeatureCards';
@@ -51,7 +51,47 @@ export default function Home() {
             >
               Autonomous On-Chain Security Agents
             </motion.p>
-
+{/* Terminal-like display */}
+<div className="max-w-2xl mx-auto mb-12 transform hover:scale-105 transition-transform duration-300">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="bg-black rounded-lg overflow-hidden shadow-2xl border border-gray-700"
+            >
+              {/* Terminal header */}
+              <div className="flex items-center gap-2 px-4 py-3 bg-gray-900 border-b border-gray-700">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                </div>
+                <div className="flex-1 text-right">
+                  <Terminal className="w-4 h-4 text-gray-400 inline-block" />
+                </div>
+              </div>
+              
+              {/* Terminal content */}
+              <div className="p-6 font-mono text-base">
+                <div className="flex items-center gap-3">
+                  <span className="text-emerald-500 font-bold">$</span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-gray-200"
+                  >
+                    npm install @guardian-ai/sdk
+                  </motion.span>
+                  <motion.span
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                    className="w-2 h-5 bg-emerald-500"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

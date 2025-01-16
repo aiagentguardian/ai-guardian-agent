@@ -34,7 +34,9 @@ const features = [
 
 export function FeatureCards() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden bg-cover bg-[url(/chain.jpeg)]">
+        <div className="bg-gradient-to-b from-black/75 to-transparent absolute top-0 left-0 h-20 w-full"></div>
+        <div className="bg-gradient-to-t from-black/75 to-transparent absolute bottom-0 left-0 h-20 w-full"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Platform Features</h2>
