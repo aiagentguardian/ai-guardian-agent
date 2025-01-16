@@ -1,12 +1,16 @@
 {
-  "name": "guardian-ai",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@guardian-ai/sdk",
+  "private": false,
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "package-build": "tsup",
+    "prepublishOnly": "npm run package-build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.18.0",
@@ -14,11 +18,12 @@
     "framer-motion": "^11.0.8",
     "lucide-react": "^0.344.0",
     "next": "^14.1.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
     "react-router-dom": "^7.1.1"
   },
   "devDependencies": {
+    "@swc/core": "^1.10.7",
     "@types/node": "^20.11.24",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
@@ -26,7 +31,25 @@
     "autoprefixer": "^10.4.18",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
+    "tsup": "^8.0.2",
     "typescript": "^5.5.3",
     "vite": "^6.0.7"
-  }
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "security",
+    "ai",
+    "blockchain",
+    "analysis",
+    "guardian"
+  ],
+  "author": "AI Guardian Network",
+  "license": "MIT"
 }
