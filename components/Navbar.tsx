@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Shield } from 'lucide-react';
+import { Shield, Twitter } from 'lucide-react';
 
 export default function Navbar() {
   return (
@@ -10,7 +10,15 @@ export default function Navbar() {
             <Shield className="w-8 h-8 text-emerald-500" />
             <span className="font-bold text-xl">Guardian AI</span>
           </Link>
-          <div className="flex space-x-4">
+          <div className="flex items-center space-x-6">
+            <Link
+              href="https://x.com/GuardianAgentAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-emerald-500 transition-colors"
+            >
+              <Twitter className="w-5 h-5" />
+            </Link>
             <Link
               href="/app"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md"

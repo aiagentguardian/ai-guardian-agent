@@ -1,12 +1,13 @@
 'use client';
 
-import { Shield, ArrowRight, Eye, Terminal } from 'lucide-react';
+import { Shield, ArrowRight, Eye, Terminal, Twitter, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { Features } from '@/components/Features';
 import { FeatureCards } from '@/components/FeatureCards';
 import { ExampleAnalysis } from '@/components/ExampleAnalysis';
 import { CTASection } from '@/components/CTASection';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -31,7 +32,14 @@ export default function Home() {
               }}
               className="inline-block mb-8"
             >
-              <Shield className="w-24 h-24 text-emerald-500" />
+               <Image
+                src="/logo.png"
+                alt="Guardian AI Logo"
+                width={248}
+                height={248}
+                className="rounded-xl"
+                priority
+              />
             </motion.div>
             
             <motion.h1
@@ -98,7 +106,18 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto"
             >
-              A crypto-native security platform powered by autonomous AI guardians that continuously patrol blockchains, smart contracts, and DeFi protocols. Our agents provide real-time monitoring, alerting, and automatic threat mitigation, moving beyond traditional static security audits.
+               <p className="mb-4">
+                A crypto-native security platform powered by autonomous AI guardians that continuously patrol blockchains, smart contracts, and DeFi protocols. Our agents provide real-time monitoring, alerting, and automatic threat mitigation, moving beyond traditional static security audits.
+              </p>
+              <Link
+                href="/Guardian_Agent_AI_Litepaper_.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-emerald-500 hover:text-emerald-400 transition-colors"
+              >
+                <FileText className="w-5 h-5 mr-2" />
+                Read our Litepaper
+              </Link>
             </motion.p>
 
             <motion.div
@@ -125,6 +144,17 @@ export default function Home() {
                   View Demo
                   <Eye className="ml-2 w-5 h-5" />
                 </a>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="https://x.com/GuardianAgentAI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg text-emerald-500 border border-emerald-500 hover:bg-emerald-500/10 transition-colors"
+                >
+                  Follow Us
+                  <Twitter className="ml-2 w-5 h-5" />
+                </Link>
               </motion.div>
             </motion.div>
           </motion.div>
