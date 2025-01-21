@@ -39,13 +39,17 @@ export function ExampleAnalysis() {
         </div>
 
         {/* Show a video of the demo */}
-        <div className="grid">
-            <video 
-              src="/demo.mp4"
-              autoPlay={true} 
-              loop 
-              muted
-              className=""></video>
+        <div className="grid pb-8">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/NDynePORJx8"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{    width: "100%"           }}
+            
+          ></iframe>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
