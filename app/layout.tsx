@@ -4,7 +4,6 @@ import './globals.css';
 import { Footer } from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
   title: 'AI Guardian Network - Security Analysis',
   description: 'AI-powered security analysis for your repositories',
@@ -56,7 +55,7 @@ export default function RootLayout({
         <main className="flex-1">
           {children}
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

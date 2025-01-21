@@ -1,5 +1,6 @@
-'use client';
 
+'use client';
+import Spline from '@splinetool/react-spline';
 import { Shield, ArrowRight, Eye, Terminal, Twitter, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { Features } from '@/components/Features';
@@ -14,7 +15,7 @@ export default function Home() {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32" style={{zIndex: 1}}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,14 +160,17 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
-        <div className="absolute inset-0 overflow-hidden" style={{zIndex: -10}}>
-          <video 
+        <div className="absolute inset-0 overflow-hidden">
+          {/* <video 
             style={{filter: "brightness(0.4)"}} 
             src="/background.mov"
             autoPlay={true} 
             loop 
             muted
             className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+          /> */}
+          <Spline
+            scene="https://prod.spline.design/ZLoff0xA-Qv4IvRf/scene.splinecode?v1" 
           />
         </div>
         {/* Scroll Indicator */}

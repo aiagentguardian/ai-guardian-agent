@@ -38,6 +38,16 @@ export function ExampleAnalysis() {
           <p className="text-xl text-gray-400">Example security analysis report</p>
         </div>
 
+        {/* Show a video of the demo */}
+        <div className="grid">
+            <video 
+              src="/demo.mp4"
+              autoPlay={true} 
+              loop 
+              muted
+              className=""></video>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Left Column - Score and Metrics */}
           <div className="space-y-8">
