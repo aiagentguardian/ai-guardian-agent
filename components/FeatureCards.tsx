@@ -3,18 +3,18 @@ import { motion } from 'framer-motion';
 
 const features = [
   {
+    title: 'On-Chain Solana Analysis',
+    description: 'Detect suspicious activities and potential security threats in Solana smart contracts and transactions.',
+    icon: Coins,
+    status: 'NEW: Available Now',
+    statusColor: 'bg-emerald-500',
+  },
+  {
     title: 'GitHub Repository Analysis',
     description: 'Deep security analysis of your GitHub repositories using advanced AI to detect vulnerabilities and provide actionable insights.',
     icon: Github,
     status: 'Available Now',
     statusColor: 'bg-emerald-500',
-  },
-  {
-    title: 'On-Chain Solana Analysis',
-    description: 'Detect suspicious activities and potential security threats in Solana smart contracts and transactions.',
-    icon: Coins,
-    status: 'Coming Soon',
-    statusColor: 'bg-blue-500',
   },
   {
     title: 'Social Behavior Analysis',

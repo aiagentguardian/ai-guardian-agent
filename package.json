@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.18.0",
+    "@solana/web3.js": "^1.98.0",
     "@splinetool/react-spline": "^4.0.0",
     "axios": "^1.7.9",
     "framer-motion": "^11.0.8",

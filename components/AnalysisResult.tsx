@@ -1,19 +1,36 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Shield, AlertTriangle, CheckCircle, XCircle, FileCode, Package, Lock } from 'lucide-react';
+import { Shield, AlertTriangle, CheckCircle, XCircle, FileCode, Package, Lock, Code } from 'lucide-react';
+
+interface Finding {
+  type: string;
+  severity: string;
+  description: string;
+}
+
+interface OnChainAnalysis {
+  programId: string;
+  upgradeAuthority: string;
+  tokenAccounts: number;
+  pdaCount: number;
+  securityScore: number;
+  findings: Finding[];
+}
 
 interface Threat {
   level: string;
   description: string;
   impact: string;
   remediation: string;
+  category: string;
 }
 
 interface AnalysisData {
   score: number;
   threats: Threat[];
   recommendations: string[];
+  onChainAnalysis?: OnChainAnalysis;
 }
 
 interface AnalysisMetrics {
@@ -128,7 +145,12 @@ export function AnalysisResult({ id }: { id: string }) {
                     ) : (
                       <CheckCircle className="w-5 h-5 text-emerald-500" />
                     )}
-                    <span className="text-gray-300 font-medium">{threat.description}</span>
+                    <span className="text-gray-300 font-medium">
+                      {threat.description}
+                      <span className="ml-2 text-xs px-2 py-1 rounded-full bg-gray-800">
+                        {threat.category}
+                      </span>
+                    </span>
                   </div>
                   <div className="ml-9 space-y-2">
                     <p className="text-sm text-gray-400"><span className="text-gray-300 font-medium">Impact:</span> {threat.impact}</p>
@@ -139,6 +161,56 @@ export function AnalysisResult({ id }: { id: string }) {
             </div>
           </div>
         </div>
+
+        {results.onChainAnalysis && (
+          <div className="mb-12 p-6 rounded-lg border border-gray-800">
+            <h3 className="text-xl font-semibold mb-4">On-Chain Analysis</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="p-4 rounded-lg bg-gray-900">
+                  <h4 className="font-medium mb-2">Program Details</h4>
+                  <div className="space-y-2 text-sm">
+                    <p><span className="text-gray-400">Program ID:</span> {results.onChainAnalysis.programId}</p>
+                    <p><span className="text-gray-400">Upgrade Authority:</span> {results.onChainAnalysis.upgradeAuthority}</p>
+                    <p><span className="text-gray-400">Token Accounts:</span> {results.onChainAnalysis.tokenAccounts}</p>
+                    <p><span className="text-gray-400">PDA Count:</span> {results.onChainAnalysis.pdaCount}</p>
+                  </div>
+                </div>
+                
+                <div className="p-4 rounded-lg bg-gray-900">
+                  <h4 className="font-medium mb-2">Security Score</h4>
+                  <div className="flex items-center space-x-2">
+                    <div className="text-2xl font-bold">{results.onChainAnalysis.securityScore}/100</div>
+                    <Shield className={`w-6 h-6 ${
+                      results.onChainAnalysis.securityScore >= 80 ? 'text-emerald-500' :
+                      results.onChainAnalysis.securityScore >= 60 ? 'text-yellow-500' :
+                      'text-red-500'
+                    }`} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h4 className="font-medium">Security Findings</h4>
+                {results.onChainAnalysis.findings.map((finding, index) => (
+                  <div key={index} className="p-4 rounded-lg bg-gray-900">
+                    <div className="flex items-center space-x-2 mb-2">
+                      {finding.severity === 'high' ? (
+                        <XCircle className="w-5 h-5 text-red-500" />
+                      ) : finding.severity === 'medium' ? (
+                        <AlertTriangle className="w-5 h-5 text-yellow-500" />
+                      ) : (
+                        <CheckCircle className="w-5 h-5 text-emerald-500" />
+                      )}
+                      <span className="text-sm font-medium">{finding.type}</span>
+                    </div>
+                    <p className="text-sm text-gray-400 ml-7">{finding.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="p-6 rounded-lg border border-gray-800">
           <h3 className="text-xl font-semibold mb-4">Recommendations</h3>

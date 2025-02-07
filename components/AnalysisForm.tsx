@@ -14,6 +14,7 @@ const loadingSteps = [
 
 export function AnalysisForm() {
   const [repoUrl, setRepoUrl] = useState('');
+  const [programId, setProgramId] = useState('');
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [error, setError] = useState('');
@@ -38,7 +39,10 @@ export function AnalysisForm() {
       const response = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ repoUrl }),
+        body: JSON.stringify({ 
+          repoUrl,
+          programId: programId || undefined
+        }),
       });
 
       if (!response.ok) {
@@ -55,21 +59,6 @@ export function AnalysisForm() {
     }
   };
 
-  const Sparkle = () => (
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: [0, 1, 0], opacity: [0, 1, 0] }}
-      transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
-      className="absolute"
-      style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-      }}
-    >
-      <Sparkles className="w-4 h-4 text-emerald-400" />
-    </motion.div>
-  );
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -83,11 +72,6 @@ export function AnalysisForm() {
           animate={{ opacity: 1 }}
           className="py-12 text-center relative"
         >
-          {/* Sparkles */}
-          {[...Array(6)].map((_, i) => (
-            <Sparkle key={i} />
-          ))}
-
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -139,19 +123,37 @@ export function AnalysisForm() {
               GitHub Repository URL
             </label>
             <div className="relative">
-              <motion.input
-                whileFocus={{ scale: 1.01 }}
-                transition={{ duration: 0.2 }}
+              <input
                 type="url"
                 id="repoUrl"
                 value={repoUrl}
                 onChange={(e) => setRepoUrl(e.target.value)}
                 placeholder="https://github.com/username/repository"
-                className="w-full px-4 py-3 bg-black rounded-lg border border-gray-700 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                className="w-full px-4 py-3 bg-black rounded-lg border border-gray-700 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none"
                 required
               />
-              <Search className="absolute right-3 top-3 text-gray-400" />
+              <Search className="absolute right-3 text-gray-400 top-3" />
             </div>
+            <p className="mt-2 text-sm text-gray-400">
+              Enter the URL of the GitHub repository you want to analyze
+            </p>
+          </div>
+
+          <div>
+            <label htmlFor="programId" className="block text-sm font-medium mb-2">
+              Solana Program ID (Optional)
+            </label>
+            <input
+              type="text"
+              id="programId"
+              value={programId}
+              onChange={(e) => setProgramId(e.target.value)}
+              placeholder="Enter Solana program ID for on-chain analysis"
+              className="w-full px-4 py-3 bg-black rounded-lg border border-gray-700 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none"
+            />
+            <p className="mt-2 text-sm text-gray-400">
+              Add a Solana program ID to include on-chain security analysis
+            </p>
           </div>
 
           {error && (
