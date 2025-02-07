@@ -132,7 +132,7 @@ export default function Home() {
                   href="/app"
                   className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg text-black bg-emerald-500 hover:bg-emerald-400 transition-colors"
                 >
-                  Deploy Guardians
+                  AI Security Analysis
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </motion.div>
