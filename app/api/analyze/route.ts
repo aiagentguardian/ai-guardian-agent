@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
-import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
-import { Metadata } from '@metaplex-foundation/mpl-token-metadata';
+import { Connection, PublicKey } from '@solana/web3.js';
 
 const anthropic = new Anthropic({
   apiKey: process.env.VITE_ANTHROPIC_API_KEY
